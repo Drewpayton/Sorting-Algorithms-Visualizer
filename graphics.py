@@ -56,7 +56,7 @@ class Window:
         for i, rect in enumerate(self.rectangles):
             rect.move(100+i * 40, rect.y1)
         self.canvas.update()
-        # time.sleep(0.1)
+        time.sleep(0.1)
 
     def bubble_sort_visualize(self):
         def key(rect):
