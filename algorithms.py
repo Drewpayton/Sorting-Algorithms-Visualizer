@@ -9,26 +9,45 @@ class Algorithms:
         for i in range(n):
             swapped = False
             for j in range(0, n-i-1):
+                self.arr[j].change_color("green")
+                self.arr[j+1].change_color("green")
+                if visualize:
+                    visualize()
+                    time.sleep(.1)
                 if key(self.arr[j]) > key(self.arr[j+1]):
                     # Highlight the rectangles being swapped
-                    self.arr[j].change_color('blue')
-                    self.arr[j+1].change_color('blue')
+                    self.arr[j].change_color('red')
+                    self.arr[j+1].change_color('red')
                     if visualize:
                         visualize()
-                        # time.sleep(0.2)  # Longer delay to highlight the swap
+                        time.sleep(0.1)  # Longer delay to highlight the swap
 
                     # Swap the rectangles
                     self.arr[j], self.arr[j+1] = self.arr[j+1], self.arr[j]
                     swapped = True
 
                     # Revert the color after swap
-                    self.arr[j].change_color('red')
-                    self.arr[j+1].change_color('red')
+                    self.arr[j].change_color('blue')
+                    self.arr[j+1].change_color('blue')
                     if visualize:
                         visualize()
-                        # time.sleep(0.2)  # Delay to show the reverted color
-
+                        time.sleep(0.1)  # Delay to show the reverted color
+                else:
+                    self.arr[j].change_color("blue")
+                    self.arr[j+1].change_color("blue")
+                    if visualize:
+                        visualize()
+                        time.sleep(.1)
+            self.arr[j+1].change_color("purple")
+            if visualize:
+                visualize()
+                # time.sleep(.2)
             if not swapped:
+                for k in range(i+1):
+                    self.arr[k].change_color("purple")
+                    if visualize:
+                        visualize()
+                        time.sleep(0.1)
                 break
 
     def insertionSort(self):
