@@ -17,8 +17,8 @@ class Window:
         self.solveButton.place(x=100, y=100)
         self.newArrayButton = Button(self.root, text="New Array", command=self.new_array)
         self.newArrayButton.place(x=100, y=200)
-        # self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
-        # self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
+        self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
+        self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
 
         # self.r1 = Radiobutton(self.root, text="Bubble Sort", value="A")
         # self.r2 = Radiobutton(self.root, text="Insertion Sort", value="B")
@@ -59,7 +59,7 @@ class Window:
     
     def visualize(self):
         for i, rect in enumerate(self.rectangles):
-            rect.move(100+i * 40, rect.y1)
+            rect.move(300+i * 40, rect.y1)
         self.canvas.update()
         time.sleep(0.1)
 
@@ -71,7 +71,7 @@ class Window:
                 
     def _create_rectangle(self, num_rectangles):
         for i in range(num_rectangles):
-            x1, y1 = 400 + i * 40, random.randint(450, 700)
+            x1, y1 = 300 + i * 40, random.randint(450, 700)
             x2, y2 = x1 + 20, 800
             color = "blue"
             height = y2 - y1
@@ -81,6 +81,8 @@ class Window:
     def new_array(self):
         self.rectangles = []
         self.canvas.delete("all")
+        self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
+        self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
         self._create_rectangle(15)
 
 class Rectangle:

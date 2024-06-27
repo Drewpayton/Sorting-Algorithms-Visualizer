@@ -49,7 +49,8 @@ class Algorithms:
                         visualize()
                         time.sleep(0.1)
                 break
-
+        
+        
     def insertionSort(self):
         pass
 
