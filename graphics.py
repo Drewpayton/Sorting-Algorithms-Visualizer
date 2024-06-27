@@ -12,6 +12,11 @@ class Window:
         self.canvas = Canvas(self.root, width=self.width, height=self.height, bg="light grey")
         self.rectangles = []
         self.running = False
+
+        self.solveButton = Button(self.root, text="Sort", command=self.bubble_sort_visualize)
+        self.solveButton.place(x=100, y=100)
+        self.newArrayButton = Button(self.root, text="New Array", command=self.new_array)
+        self.newArrayButton.place(x=100, y=200)
         # self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
         # self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
 
@@ -37,7 +42,7 @@ class Window:
     
         self.canvas.pack()
         self.root.protocol("WM_DELETE_WINDOW", self.close)
-        self.bubble_sort_visualize()
+        # self.bubble_sort_visualize()
         # self.root.mainloop()
 
     def redraw(self):
@@ -72,6 +77,11 @@ class Window:
             height = y2 - y1
             rect = Rectangle(self.canvas, x1, y1, x2, y2, color, height)
             self.rectangles.append(rect)
+
+    def new_array(self):
+        self.rectangles = []
+        self.canvas.delete("all")
+        self._create_rectangle(15)
 
 class Rectangle:
     def __init__(self, canvas, x1, y1, x2, y2, color, height):
