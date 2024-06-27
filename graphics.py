@@ -1,4 +1,4 @@
-from tkinter import Tk, BOTH, Canvas, Button
+from tkinter import Tk, BOTH, Canvas, Button, Radiobutton, StringVar
 from algorithms import Algorithms
 import random
 import time
@@ -14,27 +14,30 @@ class Window:
         self.running = False
 
         self.solveButton = Button(self.root, text="Sort", command=self.bubble_sort_visualize)
-        self.solveButton.place(x=100, y=100)
+        self.solveButton.place(x=500, y=100)
         self.newArrayButton = Button(self.root, text="New Array", command=self.new_array)
-        self.newArrayButton.place(x=100, y=200)
+        self.newArrayButton.place(x=500, y=200)
         self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
         self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
 
-        # self.r1 = Radiobutton(self.root, text="Bubble Sort", value="A")
-        # self.r2 = Radiobutton(self.root, text="Insertion Sort", value="B")
-        # self.r3 = Radiobutton(self.root, text="Selection Sort", value="C")
-        # self.r4 = Radiobutton(self.root, text="Merge Sort", value="D")
-        # self.r5 = Radiobutton(self.root, text="Heap Sort", value="E")
-        # self.r6 = Radiobutton(self.root, text="Radix Sort", value="F")
-        # self.r7 = Radiobutton(self.root, text="Quick Sort", value="G")
+        self.selected_algorithm = StringVar()
+        self.selected_algorithm.set("A")
 
-        # self.r1.place(x=250, y=99)
-        # self.r2.place(x=250, y=124)
-        # self.r3.place(x=250, y=149)
-        # self.r4.place(x=250, y=174)
-        # self.r5.place(x=250, y=199)
-        # self.r6.place(x=250, y=224)
-        # self.r7.place(x=250, y=249)
+        self.r1 = Radiobutton(self.root, text="Bubble Sort", variable=self.selected_algorithm, value="A")
+        self.r2 = Radiobutton(self.root, text="Insertion Sort", variable=self.selected_algorithm, value="B")
+        self.r3 = Radiobutton(self.root, text="Selection Sort", variable=self.selected_algorithm, value="C")
+        self.r4 = Radiobutton(self.root, text="Merge Sort", variable=self.selected_algorithm, value="D")
+        self.r5 = Radiobutton(self.root, text="Heap Sort", variable=self.selected_algorithm, value="E")
+        self.r6 = Radiobutton(self.root, text="Radix Sort", variable=self.selected_algorithm, value="F")
+        self.r7 = Radiobutton(self.root, text="Quick Sort", variable=self.selected_algorithm, value="G")
+
+        self.r1.place(x=250, y=99)
+        self.r2.place(x=250, y=124)
+        self.r3.place(x=250, y=149)
+        self.r4.place(x=250, y=174)
+        self.r5.place(x=250, y=199)
+        self.r6.place(x=250, y=224)
+        self.r7.place(x=250, y=249)
 
         self._create_rectangle(15)
 
@@ -42,7 +45,6 @@ class Window:
     
         self.canvas.pack()
         self.root.protocol("WM_DELETE_WINDOW", self.close)
-        # self.bubble_sort_visualize()
         # self.root.mainloop()
 
     def redraw(self):
@@ -64,6 +66,7 @@ class Window:
         time.sleep(0.1)
 
     def bubble_sort_visualize(self):
+        print(self.selected_algorithm.get())
         def key(rect):
             return rect.height
         sorting = Algorithms(self.rectangles)
