@@ -39,7 +39,7 @@ class Window:
         self.r6.place(x=250, y=224)
         self.r7.place(x=250, y=249)
 
-        self._create_rectangle(15)
+        self._create_rectangle(20)
 
 
     
@@ -61,9 +61,9 @@ class Window:
     
     def visualize(self):
         for i, rect in enumerate(self.rectangles):
-            rect.move(300+i * 40, rect.y1)
+            rect.move(300+i * 30, rect.y1)
         self.canvas.update()
-        time.sleep(0.1)
+        # time.sleep(0.05)
 
     def bubble_sort_visualize(self):
         print(self.selected_algorithm.get())
@@ -74,8 +74,8 @@ class Window:
                 
     def _create_rectangle(self, num_rectangles):
         for i in range(num_rectangles):
-            x1, y1 = 300 + i * 40, random.randint(450, 700)
-            x2, y2 = x1 + 20, 800
+            x1, y1 = 300 + i * 30, random.randint(450, 700)
+            x2, y2 = x1 + 15, 800
             color = "blue"
             height = y2 - y1
             rect = Rectangle(self.canvas, x1, y1, x2, y2, color, height)
@@ -86,7 +86,7 @@ class Window:
         self.canvas.delete("all")
         self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
         self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
-        self._create_rectangle(15)
+        self._create_rectangle(20)
 
 class Rectangle:
     def __init__(self, canvas, x1, y1, x2, y2, color, height):

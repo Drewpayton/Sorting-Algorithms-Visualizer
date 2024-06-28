@@ -13,14 +13,14 @@ class Algorithms:
                 self.arr[j+1].change_color("green")
                 if visualize:
                     visualize()
-                    time.sleep(.1)
+                    time.sleep(.05)
                 if key(self.arr[j]) > key(self.arr[j+1]):
                     # Highlight the rectangles being swapped
                     self.arr[j].change_color('red')
                     self.arr[j+1].change_color('red')
                     if visualize:
                         visualize()
-                        time.sleep(0.1)  # Longer delay to highlight the swap
+                        time.sleep(0.05)  # Longer delay to highlight the swap
 
                     # Swap the rectangles
                     self.arr[j], self.arr[j+1] = self.arr[j+1], self.arr[j]
@@ -31,13 +31,13 @@ class Algorithms:
                     self.arr[j+1].change_color('blue')
                     if visualize:
                         visualize()
-                        time.sleep(0.1)  # Delay to show the reverted color
+                        time.sleep(0.05)  # Delay to show the reverted color
                 else:
                     self.arr[j].change_color("blue")
                     self.arr[j+1].change_color("blue")
                     if visualize:
                         visualize()
-                        time.sleep(.1)
+                        time.sleep(.05)
             self.arr[j+1].change_color("purple")
             if visualize:
                 visualize()
@@ -47,10 +47,10 @@ class Algorithms:
                     self.arr[k].change_color("purple")
                     if visualize:
                         visualize()
-                        time.sleep(0.1)
+                        time.sleep(0.05)
                 break
         
-        
+
     def insertionSort(self):
         pass
 
