@@ -69,8 +69,37 @@ class Algorithms:
             
         
 
-    def selectionSort(self):
-        pass
+    def selectionSort(self, key=lambda x: x, visualize=None):
+        n = len(self.arr)
+
+        for i in range(n):
+            cur_min = i
+            self.arr[i].change_color("yellow")
+            if visualize:
+                visualize()
+                time.sleep(.1)
+            for j in range(i+1, n):
+                self.arr[j].change_color("red")
+                if visualize:
+                    visualize()
+                    time.sleep(.3)
+                self.arr[j].change_color("blue")
+                if visualize:
+                    visualize()
+                if key(self.arr[j]) < key(self.arr[cur_min]):
+                    if cur_min != i:
+                        self.arr[cur_min].change_color("blue")
+                    cur_min = j
+                    self.arr[cur_min].change_color("green")
+                    if visualize:
+                        visualize()
+                
+            self.arr[i], self.arr[cur_min] = self.arr[cur_min], self.arr[i]
+            self.arr[i].change_color("blue")
+            self.arr[cur_min].change_color("blue")
+            if visualize:
+                visualize()
+                time.sleep(.3)
 
     def mergeSort(self):
         pass

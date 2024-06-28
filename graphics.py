@@ -12,14 +12,7 @@ class Window:
         self.canvas = Canvas(self.root, width=self.width, height=self.height, bg="light grey")
         self.rectangles = []
         self.running = False
-
-        self.solveButton = Button(self.root, text="Sort", command=self.insertion_sort_visualize)
-        self.solveButton.place(x=500, y=100)
-        self.newArrayButton = Button(self.root, text="New Array", command=self.new_array)
-        self.newArrayButton.place(x=500, y=200)
-        self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
-        self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
-
+        
         self.selected_algorithm = StringVar()
         self.selected_algorithm.set("A")
 
@@ -38,6 +31,14 @@ class Window:
         self.r5.place(x=250, y=199)
         self.r6.place(x=250, y=224)
         self.r7.place(x=250, y=249)
+
+        self.solveButton = Button(self.root, text="Sort", command=self.sorter)
+        self.solveButton.place(x=500, y=100)
+        self.newArrayButton = Button(self.root, text="New Array", command=self.new_array)
+        self.newArrayButton.place(x=500, y=200)
+        self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
+        self.canvas.create_rectangle((100, 325), (1100, 800), fill="light gray")
+
 
         self._create_rectangle(20)
 
@@ -64,6 +65,23 @@ class Window:
             rect.move(300+i * 30, rect.y1)
         self.canvas.update()
         # time.sleep(0.05)
+    
+    def sorter(self):
+        val = self.selected_algorithm.get()
+        if val == "A":
+            self.bubble_sort_visualize()
+        elif val == "B":
+            self.insertion_sort_visualize()
+        elif val == "C":
+            self.selection_sort_visualize()
+        elif val == "D":
+            print("D")
+        elif val == "E":
+            print("E")
+        elif val == "F":
+            print("F")
+        elif val == "G":
+            print("G")
 
     def bubble_sort_visualize(self):
         print(self.selected_algorithm.get())
@@ -77,6 +95,12 @@ class Window:
             return rect.height
         sorting = Algorithms(self.rectangles)
         sorting.insertionSort(key=key, visualize=self.visualize)
+
+    def selection_sort_visualize(self):
+        def key(rect):
+            return rect.height
+        sorting = Algorithms(self.rectangles)
+        sorting.selectionSort(key=key, visualize=self.visualize)
 
     def _create_rectangle(self, num_rectangles):
         for i in range(num_rectangles):
