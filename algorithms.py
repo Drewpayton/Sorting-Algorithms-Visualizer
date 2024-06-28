@@ -51,8 +51,23 @@ class Algorithms:
                 break
         
 
-    def insertionSort(self):
-        pass
+    def insertionSort(self, key=lambda x: x, visualize=None):
+        n = len(self.arr)
+
+        for i in range(1, n):
+            j = i
+            while key(self.arr[j-1]) > key(self.arr[j]) and j > 0:
+                self.arr[j-1], self.arr[j] = self.arr[j], self.arr[j - 1]
+                self.arr[j-1].change_color("yellow")
+                j -= 1
+                if visualize:
+                    visualize()
+                    time.sleep(0.2)
+                self.arr[j].change_color("blue")
+                if visualize:
+                    visualize()
+            
+        
 
     def selectionSort(self):
         pass

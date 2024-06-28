@@ -13,7 +13,7 @@ class Window:
         self.rectangles = []
         self.running = False
 
-        self.solveButton = Button(self.root, text="Sort", command=self.bubble_sort_visualize)
+        self.solveButton = Button(self.root, text="Sort", command=self.insertion_sort_visualize)
         self.solveButton.place(x=500, y=100)
         self.newArrayButton = Button(self.root, text="New Array", command=self.new_array)
         self.newArrayButton.place(x=500, y=200)
@@ -71,7 +71,13 @@ class Window:
             return rect.height
         sorting = Algorithms(self.rectangles)
         sorting.bubbleSort(key=key, visualize=self.visualize)
-                
+    
+    def insertion_sort_visualize(self):
+        def key(rect):
+            return rect.height
+        sorting = Algorithms(self.rectangles)
+        sorting.insertionSort(key=key, visualize=self.visualize)
+
     def _create_rectangle(self, num_rectangles):
         for i in range(num_rectangles):
             x1, y1 = 300 + i * 30, random.randint(450, 700)
