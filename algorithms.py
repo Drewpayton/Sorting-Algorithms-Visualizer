@@ -101,15 +101,65 @@ class Algorithms:
                 visualize()
                 time.sleep(.3)
 
-    def mergeSort(self):
-        pass
+    # def mergeSort(self, key=lambda x: x, visualize=None):
+    #     def _mergeSort(arr):
+    #         if len(arr) > 1:
+    #             mid = len(arr) // 2
+    #             left_arr = arr[:mid]
+    #             right_arr = arr[mid:]
 
-    def heapSort(self):
-        pass
+    #             # Recursive calls
+    #             left_arr = _mergeSort(left_arr)
+    #             right_arr = _mergeSort(right_arr)
 
-    def radixSort(self):
-        pass
+    #             i, j, k = 0, 0, 0
+    #             while i < len(left_arr) and j < len(right_arr):
+    #                 if key(left_arr[i]) < key(right_arr[j]):
+    #                     arr[k] = left_arr[i]
+    #                     i += 1
+    #                     if visualize:
+    #                         visualize()
+    #                 else:
+    #                     arr[k] = right_arr[j]
+    #                     j += 1
+    #                 if visualize:
+    #                     visualize()
+    #                     time.sleep(0.1)
+    #                 k += 1
+
+    #             while i < len(left_arr):
+    #                 arr[k] = left_arr[i]
+    #                 i += 1
+    #                 k += 1
+    #                 if visualize:
+    #                     visualize()
+    #                     time.sleep(0.05)
+
+    #             while j < len(right_arr):
+    #                 arr[k] = right_arr[j]
+    #                 j += 1
+    #                 k += 1
+    #                 if visualize:
+    #                     visualize()
+    #                     time.sleep(0.05)
+
+    #         return arr
+
+    #     self.arr = _mergeSort(self.arr)
+    #     if visualize:
+    #         visualize()
+    #         time.sleep(.3)
+
+            
+
+
+
+    # def heapSort(self, key=lambda x: x, visualize=None):
+    #     pass
+
+    # def radixSort(self, key=lambda x: x, visualize=None):
+    #     pass
     
-    def quickSort(self):
-        pass
+    # def quickSort(self, key=lambda x: x, visualize=None):
+    #     pass
     
