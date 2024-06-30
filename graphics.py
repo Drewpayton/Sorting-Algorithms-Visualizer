@@ -22,23 +22,23 @@ class Window:
         self.r1 = Radiobutton(self.root, text="Bubble Sort", variable=self.selected_algorithm, value="A")
         self.r2 = Radiobutton(self.root, text="Insertion Sort", variable=self.selected_algorithm, value="B")
         self.r3 = Radiobutton(self.root, text="Selection Sort", variable=self.selected_algorithm, value="C")
+        self.solveButton = Button(self.root, text="Sort", command=self.sorter)
+        self.newArrayButton = Button(self.root, text="New Array", command=self.randomizer)
         # self.r4 = Radiobutton(self.root, text="Merge Sort", variable=self.selected_algorithm, value="D")
         # self.r5 = Radiobutton(self.root, text="Heap Sort", variable=self.selected_algorithm, value="E")
         # self.r6 = Radiobutton(self.root, text="Radix Sort", variable=self.selected_algorithm, value="F")
         # self.r7 = Radiobutton(self.root, text="Quick Sort", variable=self.selected_algorithm, value="G")
-        self.solveButton = Button(self.root, text="Sort", command=self.sorter)
-        self.newArrayButton = Button(self.root, text="New Array", command=self.randomizer)
 
         # Placing the buttons
         self.r1.place(x=250, y=99)
         self.r2.place(x=250, y=124)
         self.r3.place(x=250, y=149)
+        self.solveButton.place(x=500, y=100)
+        self.newArrayButton.place(x=500, y=150)
         # self.r4.place(x=250, y=174)
         # self.r5.place(x=250, y=199)
         # self.r6.place(x=250, y=224)
         # self.r7.place(x=250, y=249)
-        self.solveButton.place(x=500, y=100)
-        self.newArrayButton.place(x=500, y=200)
 
         # Creating a structured UI
         self.canvas.create_rectangle((100, 75), (1100, 300), fill="light gray")
